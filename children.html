@@ -2,17 +2,20 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
+	 <link href="calculator.css" rel="stylesheet" type="text/css"/>
   	<title>calculator</title>
   </head>
-  <body>
+  <body id="wrapper">
   	<div>
   		<h1>calculator</h1>
   	</div>
+	<nav>
   	<ul> 
-  	  <li><a href="children.html">children</a></li>
+  	  <li><a class="active" href="children.html">children</a></li>
   	  <li><a href="adults.html">adults</a></li>
   	  <li><a href="both.html">both</a></li>
     </ul>
+	</nav>
     <div>
 	<script src="jquery.js"></script>
     <script src="calculator.js"></script>
@@ -28,12 +31,12 @@
 	 });
 	});
     </script>
-    <h1>calculator demo</h1>
-    <p>
+    <h2>calculator demo</h2>
+    <p class="centre">
       <input type="text" value="PI*4^2 + 5"/> <button>equals</button> <span></span>
     </p>
     
-    <pre>      
+    <pre class="centre">      
       /* description: Parses end evaluates mathematical expressions. */
 
       /* lexical grammar */
