@@ -1,42 +1,65 @@
 <!DOCTYPE HTML>
 <html lang="en">
   <head>
+  <link rel="stylesheet" type="text/css" href="calculator.css">
     <meta charset="utf-8">
-	 <link href="calculator.css" rel="stylesheet" type="text/css"/>
   	<title>calculator</title>
   </head>
-  <body id="wrapper">
+  <body>
   	<div>
   		<h1>calculator</h1>
   	</div>
-	<nav>
   	<ul> 
-  	  <li><a class="active" href="children.html">children</a></li>
+  	  <li><a href="children.html">children</a></li>
   	  <li><a href="adults.html">adults</a></li>
   	  <li><a href="both.html">both</a></li>
     </ul>
-	</nav>
     <div>
 	<script src="jquery.js"></script>
     <script src="calculator.js"></script>
+	<script src="addition.js"></script>
+	<script src="subtraction.js"></script>
     <script>
+	 var time=0;
+	 var  fox=0;
+	 var danger;
 	$(document).ready(function(){
-	  $("button").click(function(){
+	  $("#myDivId").click(function(){
 	   try{
 	    var result= calculator.parse($("input").val())
-		$("span").html(result);
+		$("#answer").html(result);
+		time=0;
+		fox=fox+1;
+		if(fox==1){
+		timer();
+		}
 	   }catch(e){
-	   $("span").html(String(e));
+	   $("#answer").html(String(e));
 	  }
 	 });
 	});
+	function timer(){
+	time++;
+	document.getElementById('time').innerHTML=time;
+	danger=setTimeout(timer,1000);
+	}
     </script>
-    <h2>calculator demo</h2>
-    <p class="centre">
-      <input type="text" value="PI*4^2 + 5"/> <button>equals</button> <span></span>
+    <h1>calculator demo</h1>
+    <p>
+      <input type="text" value="PI*4^2 + 5"/> <button id="myDivId">equals</button> 
     </p>
-    
-    <pre class="centre">      
+    <div id="time">0</div>
+	<p>
+	<input type="text" id="first_number"/> 
+	<input type="text" id="Second_number"/> </br>
+	<button onclick="additionFunction(first_number.value.toString(),Second_number.value.toString())">addition of two numbers</button>
+	<button onclick="subtractionFunction(first_number.value.toString(),Second_number.value.toString())">Subtraction of two numbers</button>
+	<p>
+	<div id="answer"></div>
+	<div id="creation"></div>
+	<label for="a1">Answer: </label>
+	 <label for="a" id="a2"></label><br>
+    <pre>      
       /* description: Parses end evaluates mathematical expressions. */
 
       /* lexical grammar */
@@ -97,5 +120,13 @@
           ;
 
   </pre>
+  <script>
+	var time=0;
+	var timer=function(){
+	time=time+1;
+	document.getElementById('time').innerHTML=time;
+  setTimeout(timer,1000);
+}
+	</script>
   </body>
 </html>
