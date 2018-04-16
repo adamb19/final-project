@@ -44,7 +44,7 @@ expressions
 
 e
     : e '+' e
-        {$$ = $1+$3;}
+        {$$ = $1+$3; additionFunction($1.toString(),$3.toString());}
     | e '-' e
         {$$ = $1-$3;}
     | e '*' e
