@@ -23,29 +23,15 @@
 	<script src="gridMultiplication.js"></script>
 	<script src="devision.js"></script>
     <script>
-	 var time=0;
-	 var  fox=0;
-	 var danger;
 	$(document).ready(function(){
 	  $("#myDivId").click(function(){
 	   try{
 	    var result= calculator.parse($("input").val())
-		$("#answer").html(result);
-		time=0;
-		fox=fox+1;
-		if(fox==1){
-		timer();
-		}
 	   }catch(e){
 	   $("#answer").html(String(e));
 	  }
 	 });
 	});
-	function timer(){
-	time++;
-	document.getElementById('time').innerHTML=time;
-	danger=setTimeout(timer,1000);
-	}
     </script>
     <h1>calculator demo</h1>
     <p>
@@ -126,13 +112,5 @@
           ;
 
   </pre>
-  <script>
-	var time=0;
-	var timer=function(){
-	time=time+1;
-	document.getElementById('time').innerHTML=time;
-  setTimeout(timer,1000);
-}
-	</script>
   </body>
 </html>
