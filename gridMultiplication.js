@@ -1,13 +1,7 @@
 var gridnumberlength
 	var gridnumberlength2;
-	//var t6;
-	//var t7;
 	var gridcreation;
 	var gridtbl;
-	//var tr;
-	//var f15;
-	//var fl6;
-	//var finish7;
 	var gridfinish2;
 	var gridfinish;
 	var gridnumber;
@@ -15,7 +9,7 @@ var gridnumberlength
 	var gridtd;
 	var gridtd2;
 	var gridtd5;
-	var gridt=-1;
+	var gridt;
 	var gridf;
 	var gridanswer1;
 	var gridy;
@@ -23,18 +17,9 @@ var gridnumberlength
 	var gridspace=1;
 	var gridspace2=1;
 	var gridmore2=0;
-	//var tdc;
-	//var tdd;
 	var gridtr;
 	var grid1=-1;
-	//var tdf;
 	var gridtr2;
-	/*
-	var trb;
-	var trc;
-	var trd;
-	var tim2=0;
-	*/
 	var gridjin=1;
 	var gridhit;
 	var gridhon=-1;
@@ -43,13 +28,9 @@ var gridnumberlength
 	var gridtr5;
 	var gridtr6;
 	var gridtr7;
-	/*
-	var info3=[];
-	var second3;
-	*/
 	var gridans;
-	var gridwind=13;
-	var gridwind2=14;
+	var gridwind=8;
+	var gridwind2=12;
 	var gridwind3=15;
 	var gridtime;
 	var power;
@@ -65,38 +46,45 @@ var gridnumberlength
 	var gridtimes;
 	var gridtimed;
 	var a=[];
+	var gridz2;
+	
+	//the grid multiplication will do the grid mutiplication method
 	function gridMultiplicationFunction(grids,grids6){
 	gridnumberlength=grids.length;
 	gridnumberlength2=grids6.length;
 	gridzy=gridnumberlength2;
+	gridz2=gridnumberlength2+1;
 	 gridnumber=grids;
 	 gridnumber2=grids6;
 	 gridtimes=gridnumber*gridnumber2;
 	 gridtimed=gridtimes.toString().length;
+	 gridz3=0;
+     gridtim=0;
+	 gridtim1=1;
+	 gridzyj=1;
+	 grid2=-1;
+	 grid1=-1;
+	 gridspace=1;
+	 gridspace2=1;
+	 gridmore2=0;
+	 gridjin=1;
+	 power1=[];
+	 power3=[];
 	 gridhon++;
-	// gridmore=0;
-	 //boll3=true;
-	 //boll2=false;
-	//t6=-1;
-	//t7=-1;
 	gridtime=0;
      gridfinish=0;
 	gridfinish2=0;
-	 //jin=1;
-	//finish1=0;
+	gridt=-1;
 	if(gridhon>0){
 	timerout3();
 	}
-	//if(hon1>0){
-		//timerout1();
-		//}
-	//}
 	gridcreation=document.getElementById('creation');
 	gridtbl=document.createElement('table');
 	timergrid();
 }
+
+//this will starttimer and control the animation for this class
 function timergrid(){
-//if(boll3==true){`	
 	gridtime++;
 	var gridhon;
 	gridhon++;
@@ -106,16 +94,6 @@ function timergrid(){
 	else if(gridtime==7){
 	gridrow2();
 	}
-	/*
-	else if(gridtime==5){
-	gridrow3();
-	}
-	*/
-	/*
-	else if(time2==7){
-	rowb4();
-	}
-	*/
 	else if(gridtime==gridwind){
 	    gridfinish++;
 		gridfinish2++;
@@ -139,28 +117,34 @@ function timergrid(){
 		additiongrid();
 		document.getElementById("a2").innerHTML+=gridnumber*gridnumber2;
 	}
-	gridcreation.appendChild(gridtbl);
-	if(gridtime==gridwind3){
+	else if(gridtime==gridwind3){
 		removegridTable();
 		document.getElementById("a2").innerHTML="";
 		info2=[];
-		gridwind=13;
-		gridwind1=15;
-		gridwind2=17;
+		gridplus=[];
+		gridwind=8;
+		gridwind2=12;
+		gridwind3=15;
 		gridfinish=0;
 		gridfinish2=0;
 		//grid=1;
+		timerout3();
 		gridans=numberlength8;
 		document.getElementById('time').innerHTML="";
 	}
+	gridcreation.appendChild(gridtbl);
 	document.getElementById('time').innerHTML=gridtime;
+	if(gridtime<gridwind3){
 	gridhit=setTimeout(timergrid,1000);
 	sleep2_ms(1000);
 	}
+	}
+	//put sleep for so many milliseconds
 function sleep2_ms(millisecs) {
     var initiation = new Date().getTime();
     while ((new Date().getTime() - initiation) < millisecs);
 }
+//first row will bput the number on the top
 function gridrow1(){
 	gridtr=document.createElement('tr');
 	gridtr.setAttribute("style","border: 1px solid black;");
@@ -187,8 +171,9 @@ function gridrow1(){
 	}
 	gridtbl.appendChild(gridtr);
 }
+//they will pu a second row 
 function gridrow2(){
-	var gridz2=gridnumberlength2+1;
+	gridz2=gridnumberlength2+1;
 	for(var grid4=gridnumberlength2;grid4>0;grid4--){
 	gridtim++;
 	gridtr2=document.createElement('tr');
@@ -227,6 +212,7 @@ function gridrow2(){
 	gridtbl.appendChild(gridtr2);
 }
 }
+//grid answerof alll the numbers
 function gridanswer(gridans,gridfinish){
 	var griddanga=power3.length;
 	var griddangb=power1.length;
@@ -244,6 +230,7 @@ function gridanswer(gridans,gridfinish){
 		if(isNaN(gridy)||isNaN(gridy2)){
 		}
 		else{
+			//if the grid numbers are put in correctly everything should be donee properly
 		gridanswer1=gridy*gridy2;
 		console.log(gridanswer1);
 		if(griddanga==griddangb){
@@ -258,6 +245,7 @@ function gridanswer(gridans,gridfinish){
 		gridplus.unshift(gridanswer1);
 }
 }
+//this will add the numbers too the bottom
 function additiongrid(){
 	b=0;
 	gridplus.sort(function(a, b){return a-b});

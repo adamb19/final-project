@@ -39,7 +39,7 @@
 	var wind1=13;
 	var wind2=15;
 	var carry=false;
-	var bol13;
+//adition function feature all the extras to do the column addition method
 function additionFunction(s,s1){
 	numberlength=s.length;
 	numberlength1=s1.length;
@@ -53,34 +53,35 @@ function additionFunction(s,s1){
 	time=0;
 	finish=0;
 	finish1=0;
-	if(hon>0){
-		timerout();
-	if(hon1>0){
-		timerout1();
-		}
-	}
+	//creation tbl
 	creation=document.getElementById('creation');
 	tbl=document.createElement('table');
 	timer3();
 }
+
+//make the timer so when timer ticks the animation are done at certain parts of the time
 function timer3(){
-	if(boll3==true){
 	time++;
 	var hon;
 	hon++;
 	checklength();
+	//if time==1 then create first row
 	if(time==1){
-	row1();
+	     row1();
 	}
+	//if time==3 then create second row
 	else if(time==3){
-	row2();
+	     row2();
 	}
+	//if timer==5  then create third row
 	else if(time==5){
-	row3();
+	     row3();
 	}
+	//if time==7 then create fourth row
 	else if(time==7){
-	row4();
+	     row4();
 	}
+	//if time will always incrmenet until number length is less then finish
 	else if(time==wind){
 	    finish++;
 	    ans=numberlength-(finish-1);
@@ -91,59 +92,66 @@ function timer3(){
 		wind2++;
 		}
 	}
+	//show answer in the box shown
     if(time==wind1){
 		document.getElementById("a2").innerHTML+=info.join("");
 	}
 	creation.appendChild(tbl);
+	//if time reset everything
 	if(time==wind2){
 		removeTable();
 		document.getElementById("a2").innerHTML="";
 		info=[];
 		wind=8;
 		wind1=13;
-		wind2=15
+		wind2=15;
+		finish1=0;
 		finish=0;
+		timerout();
 		ans=numberlength;
 		document.getElementById('time').innerHTML="";
 	}
-	
-	
-	document.getElementById('time').innerHTML=time
+	document.getElementById('time').innerHTML=time;
+	//reset every 1 millisecond
+	if(time<wind2){
 	hit=setTimeout(timer3,1000);
 	}
 }
+	
+//this length checks how big the two number are
 function checklength(){
-if(numberlength>numberlength1){
+	//if the firstnumber is bigger than the second then move the second two to the right to line up number proerly
+     if(numberlength>numberlength1){
 		f1=numberlength-numberlength1;
 		t1=t1-f1;
 		f1=0;
-		//bool==2;
-		numberlength1=numberlength;
-		//numberlength2=numberlength;
-		
+		numberlength1=numberlength;	
 	}
+	//if the second number isbigger then the first number then change the first number proerly
 	else if(numberlength1>numberlength){
 		f=numberlength1-numberlength;
 		t=t-f;
 		f=0;
-		//bool=3;
 		numberlength=numberlength1;
-		//numberlength2=numberlength1;
-	}	
+	}
+    //if they are the same then leave both the same	
 	else if(numberlength1==numberlength){
 		//bool=4;
 		numberlength2=numberlength1;
 	}
 }
+
+//make the first row
 function row1(){
 	tr=document.createElement('tr');
+	//carry on making cells until all the first number is placed in cells in the box
 	for (var i=numberlength+1;i>0;i--){
 	td=document.createElement('td');
 	t++;
 	td.id="1stNo"+i;
 	td.height = '40';
 	td.width= '25';
-	//number3[t];
+	//if it less then zero then it willbe blank otherwise put anumber in the box
 	if(t<0){
 		td.innerHTML+="";
 	}
@@ -160,6 +168,8 @@ function row1(){
 	}
 	tbl.appendChild(tr);
 }
+
+//roww 2 will make 2nd number this is very similar to the first number
 function row2(){
 	tr2=document.createElement('tr');
 	for(var j=numberlength1;j>0;j--){
@@ -168,7 +178,6 @@ function row2(){
 		td2.id="2ndNo"+j;
 		td2.height = '40';
 		td2.width= '25';
-		//number4[t];
 		if(t1<0){
 		td2.innerHTML+="";
 	}
@@ -181,8 +190,11 @@ function row2(){
 	}
 	tbl.appendChild(tr2);
 }
+
+//the third row will be empty until information is placed in 
 function row3(){
 	tr3=document.createElement('tr');
+	//this makes a border above the cell
 	tr3.setAttribute("style","border-top: 1px solid #ddd");
 	for(var k=numberlength1;k>0;k--){
 		 td3=document.createElement('td')
@@ -193,8 +205,11 @@ function row3(){
 	}
 	tbl.appendChild(tr3);
 }
+
+//this moves the last row until tally inofrmatin is given
 function row4(){
 	 tr4=document.createElement('tr');
+	 //add a border at the top and make the font size smaller
 	 tr4.setAttribute("style","border-top: 1px solid #ddd");
 	 tr4.setAttribute("style","font-size:12px");
 	for(var l=numberlength1;l>0;l--){
@@ -206,13 +221,14 @@ function row4(){
 	}
 	tbl.appendChild(tr4);
 }
+
+//thhis help make the answer and tally 
+//param ans, finish
 function answer1(ans,finish){
 	var answer;
-	//var man;
 	var y ;
 	var y1;
 	var a;
-	//var a;
 	var space;;
 	var space1;
 	var sd1;
@@ -221,10 +237,8 @@ function answer1(ans,finish){
 	var dang1=number.length;
 	var c=dang-dang1;
 	var c1=dang1-dang;
-	//ans1=numberlength;
 	 bingo=0;
-	//for(var ans=numberlength;ans>0;ans--){
-		//as++;
+	 //make the dange so the rest number are picked proerly as there might be a difference in size
 		if(dang==dang1){
 			 space=1;
 			 space1=1;
@@ -240,6 +254,7 @@ function answer1(ans,finish){
 		y1=parseInt(number2[ans-space]);
 		y=parseInt(number[ans-space1]);
 		
+		//if the number are 0 or nothing then the other number is the nswer
 		if(isNaN(y)){
 			answer=y1;
 		}
@@ -255,13 +270,14 @@ function answer1(ans,finish){
 		else{
 			answer=y+y1;
 		}
+		//if finish is less then it will do carrys normally
 		if(finish<numberlength){
-		if(answer>=10&&carry==false){
-			answer=answer-10;
-		   document.getElementById("tally"+(finish+1)).innerHTML+="1";
-			document.getElementById("answer"+(finish)).innerHTML+=answer;
-		 carry=true;
-		 info.unshift(answer);
+		  if(answer>=10&&carry==false){
+			 answer=answer-10;
+		     document.getElementById("tally"+(finish+1)).innerHTML+="1";
+			 document.getElementById("answer"+(finish)).innerHTML+=answer;
+		     carry=true;
+		     info.unshift(answer);
 		}
 		else if(answer>=10&&carry==true){
 			answer=answer+1-10;
@@ -293,6 +309,7 @@ function answer1(ans,finish){
 		}
 		}
 		
+		//don't use carrys here 
 		else if(finish==numberlength){
 			if(carry==true){
 				a=1;
@@ -307,9 +324,13 @@ function answer1(ans,finish){
 			}
 		}
 	}
+	
+	//timerout equals clesartimeout
 function timerout(){
 	clearTimeout(hit);
 }
+
+//this would remove the table
 function removeTable(){
 var rowCount = tbl.rows.length;
 for (var x=rowCount-1; x>=0; x--) {

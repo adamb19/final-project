@@ -94,7 +94,7 @@ case 3:
 this.$ = $$[$0-2]-$$[$0];subtractionFunction($$[$0-2].toString(),$$[$0].toString());
 break;
 case 4:
-this.$ = $$[$0-2]*$$[$0];gridMultiplicationFunction($$[$0-2].toString(),$$[$0].toString());
+this.$ = $$[$0-2]*$$[$0];longmultiplicationFunction($$[$0-2].toString(),$$[$0].toString());
 break;
 case 5:
 this.$ = $$[$0-2]/$$[$0];divisionFunction($$[$0-2].toString(),$$[$0].toString());

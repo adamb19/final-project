@@ -21,6 +21,8 @@ var divisionnumberlength;
 	var divisionhon=-1;
 	var divisiontallys=[];
 	var divisionhit;
+	
+	//this devision method is forthhe devision class
 	function divisionFunction(s8,s9){
 		divisionnumberlength=s8.length;
 	    divisionnumberlength2=s9.length;
@@ -30,13 +32,12 @@ var divisionnumberlength;
 	    divisionfinish=0;
 		divisionhon++;
 		divisionboolean=false;
-		if(divisionhon>0){
-		divisiontimerout();
-		}
 		divisioncreation=document.getElementById('creation');
 	    divisiontbl=document.createElement('table');
 	    divisiontimer();
 	}
+	
+	//the timer animation for the devision class
 	function divisiontimer(){
 		divisiontime++;
 		var divisionhon;
@@ -71,16 +72,22 @@ var divisionnumberlength;
 		divisionwind2=13;
 		divisionwind3=15;
 		divisionfinish=0;
+		divisiontimerout();
 		document.getElementById('time').innerHTML="";
 		}
 		document.getElementById('time').innerHTML=divisiontime;
+		if(divisiontime<divisionwind3){
 	    divisionhit=setTimeout(divisiontimer,1000);
 	    sleep3_ms(1000);
+		}
 	}
+	
     function sleep3_ms(millisecs) {
         var initiation = new Date().getTime();
         while ((new Date().getTime() - initiation) < millisecs);
     }
+	
+	//division row will make the answer row which is at the top
 	function divisionrow(){
 		var divide3=0;
 	    divisiontr=document.createElement('tr');
@@ -102,6 +109,8 @@ var divisionnumberlength;
 		}
 	    divisiontbl.appendChild(divisiontr);
     }
+	
+	//this division row is made so numbers are all put in the right place such as making the first a big as two rows and other part only one row
 	function divisionrow2(){
 		var divide=0;
 		var divide2=0;
@@ -132,6 +141,8 @@ var divisionnumberlength;
 		   }
 		   divisiontbl.appendChild(divisiontr2);
     }
+	
+	//this is the finnally row
 	function divisionrow3(){
 		var divide1=0;
 		  divisiontr3=document.createElement('tr');
@@ -154,12 +165,15 @@ var divisionnumberlength;
 		   }
 		   divisiontbl.appendChild(divisiontr3);
 	}
+	
+	//this dvivision answer helps to make sure that everything about devision works
 	function divisionanswer(fin){
 		if(fin==0){
 		var divisionanswer;
 	    var divisionanswer1;
 	    var divisionanswer2;
 		}
+		//if division is false then just - 1
 		if(divisionboolean==false){
 		divisiony=parseInt(divisionnumber[fin-1]);
 		}
@@ -205,13 +219,19 @@ var divisionnumberlength;
 		//}
 		divisiontallys.unshift(divisionanswer2);
 	}
-		function precisionRound(number, precision) {
-  var factor = Math.pow(10, precision);
-  return Math.round(number * factor) / factor;
-}
+	
+	//precision rouund by 2 decimal places
+     function precisionRound(number, precision) {
+        var factor = Math.pow(10, precision);
+        return Math.round(number * factor) / factor;
+      }
+	  
+//division timeout
 function divisiontimerout(){
 	clearTimeout(divisionhit);
 }
+
+//rmeove divsion table
 function removedivisionTable(){
 var divisionrowCount = divisiontbl.rows.length;
 for (var divisionx=divisionrowCount-1; divisionx>=0; divisionx--) {

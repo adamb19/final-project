@@ -43,6 +43,8 @@
 	var carry;
 	var bol12;
 	var danger1;
+	
+	//the method for subtraction
 function subtractionFunction(s3,s4){
 	boolten=false;
 	numberlength3=s3.length;
@@ -58,18 +60,15 @@ function subtractionFunction(s3,s4){
 	time1=0;
 	finish2=0;
 	//finish3=0;
-	if(hon1>0){
-		timerout1();
-		if(hon>0){
 			timerout();
-		}
-	}
 	creation1=document.getElementById('creation');
 	tbl1=document.createElement('table');
 	timer4();
 }
+
+//the animation class the the subtraction
 function timer4(){
-	if(boll2==true){
+	//if(boll2==true){
 	time1++;
 	var hon1;
 	hon1++;
@@ -106,18 +105,21 @@ function timer4(){
 		info1=[];
 		wind3=8;
 		wind4=13;
-		wind5=15
-		time=0;
+		wind5=15;
 		finish2=0;
 		danger1=2;
 		boolten=false;
+		timerout1();
 		ans1=numberlength3;
 		document.getElementById('time').innerHTML="";
 	}
 	document.getElementById('time').innerHTML=time1;
+	if(time1<wind5){
 	hit1=setTimeout(timer4,1000);
 	}
-}
+	}
+
+//checks the legth of the subtraction to see what number to put in the first row
 function checklength1(){
 if(numberlength3>numberlength4){
 		f3=numberlength3-numberlength4;
@@ -151,6 +153,8 @@ if(numberlength3>numberlength4){
 		numberlength5=numberlength4;
 	}
 }
+
+//this will create the sond column
 function row6(){
 	tr5=document.createElement('tr');
 	for (var z=numberlength3+1;z>0;z--){
@@ -178,6 +182,8 @@ function row6(){
 	}
 	tbl1.appendChild(tr5);
 }
+
+//this will make 2nd row
 function row7(){
 	tr6=document.createElement('tr');
 	for(var v=numberlength4;v>0;v--){
@@ -207,6 +213,8 @@ function row7(){
 	}
 	tbl1.appendChild(tr6);
 }
+
+//this will make the answer row
 function row8(){
 	tr7=document.createElement('tr');
 	tr7.setAttribute("style","border-top: 1px solid #ddd");
@@ -219,6 +227,8 @@ function row8(){
 	}
 	tbl1.appendChild(tr7);
 }
+
+//this will make the tally row for subtration
 function row9(){
 	 tr8=document.createElement('tr');
 	 tr8.setAttribute("style","border-top: 1px solid #ddd");
@@ -231,6 +241,8 @@ function row9(){
 	}
 	tbl1.appendChild(tr8);
 }
+
+//this will make the subtration answer
 function answer2(ans1,finish2){
 	var answer1;
 	//var man;
@@ -301,14 +313,6 @@ function answer2(ans1,finish2){
 		}
 		
 		if(boolten==true){
-		   //if(finish2==numberlength){
-			   
-		   //}
-			
-			//if(y2==0){
-				//answer1=Math.abs(y2);
-			//}
-			//if(finish2<=numberlength3){
 				if(y2>0){
 				y2=y2-1;
 			document.getElementById("1stNumber"+(finish2+danger1)).innerHTML=y2;

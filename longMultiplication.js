@@ -45,12 +45,15 @@ var numberlength7;
 	var more;
 	var numbertimes;
 	var numbertime;
+	
+	//the long mutiplication will make the next multiplication
 	function longMultiplicationFunction(s5,s6){
 	numberlength8=s5.length;
 	numberlength9=s6.length;
 	 number5=s5;
 	 number6=s6;
 	 numbertime=number6*number5;
+	 numbertime3=number6*number5;
 	 numbertimes=numbertime.toString().length;
 	 console.log(numbertime);
 	 console.log(numbertimes);
@@ -86,6 +89,8 @@ var numberlength7;
 	tbl2=document.createElement('table');
 	timer5();
 }
+
+//this the timer for the long multiplication
 function timer5(){
 //if(boll3==true){`	
 	time2++;
@@ -112,7 +117,7 @@ function timer5(){
 	    finish3++;
 		finish5++;
 	    ans3=numberlength8-(finish5-1);
-		answer2(ans3,finish3);
+		longanswer(ans3,finish3);
 		if(finish3<(numberlength8*(jin-1))){
 		wind7++;
 		wind8++;
@@ -125,7 +130,7 @@ function timer5(){
 	}
     if(time2==wind8){
 	    rowb4();
-		document.getElementById("a2").innerHTML+=numbertime.toString();
+		document.getElementById("a2").innerHTML+=numbertime3.toString();
 	}
 	creation2.appendChild(tbl2);
 	if(time2==wind9){
@@ -139,18 +144,24 @@ function timer5(){
 		finish5=0;
 		more=1;
 		ans3=numberlength8;
+		timerout2();
 		document.getElementById('time').innerHTML="";
 	}
 	
-	
 	document.getElementById('time').innerHTML=time2;
+	if(time2<wind9){
 	hit3=setTimeout(timer5,1000);
 	sleep1_ms(1000);
 	}
+	}
+	
+	
 function sleep1_ms(millisecs) {
     var initiation = new Date().getTime();
     while ((new Date().getTime() - initiation) < millisecs);
 }
+
+//checks the legnth compared to the answer length
 function checklengthA(){
 	fl3=numbertimes.toString()-numberlength9.toString();
 	fl4=numbertimes.toString()-numberlength8.toString();
@@ -162,49 +173,15 @@ function checklengthA(){
 		console.log(t4);	
 console.log(t5);
 if(numberlength8>numberlength9){
-	/*
-		fl3=numbertimes.toString()-numberlength9;
-		fl4=numbertimes.toString()-numberlength8;
-		t4=t4-fl3;
-		t5=t5-fl4;
-		console.log(fl3);
-		console.log(t4);
-		console.log(fl4);
-		console.log(t5);
-		fl3=0;
-		fl4=0;
-		*/
-		//bool==2;
 		numberlength9=numberlength8;
-		//numberlength2=numberlength;
 		
 	}
 	else if(numberlength9>numberlength8){
-		/*
-		fl4=numbertimes-numberlength8;
-		fl3=numbertimes-numberlength9;
-		t5=t5-fl4;
-		console.log(f14);
-		console.log(t5);
-		fl4=0;
-		t5=t5-fl4;
-		fl4=0;
-		//bool=3;
-		*/
 		numberlength8=numberlength9;
-		//numberlength2=numberlength1;
 	}	
-	//else if(numberlength9==numberlength8){
-		//fl4=numbertimes-numberlength8;
-		//fl3=numbertimes-numberlength9;
-		//t4=t4-fl3;
-		//fl3=0;
-		//t5=t5-fl4;
-		//fl4=0;
-		//bool=4;
-		//numberlength9=numberlength8;
-	//}
 }
+
+//check if first row works
 function rowb1(){
 	tra=document.createElement('tr');
 	for (var ingse=numbertimes.toString();ingse>0;ingse--){
@@ -221,13 +198,17 @@ function rowb1(){
 	else if(t5>=0&&t5<=numberlength9){
     tda.innerHTML+=number5[t5];
 	}
+	/*
 	else if(t5>numberlength8){
 		tda.innerHTML+="X";
 	}
+	*/
 	tra.appendChild(tda);
 	}
 	tbl2.appendChild(tra);
 }
+
+// this makes the second row
 function rowb2(){
 	trb=document.createElement('tr');
 	for(var ings=numbertimes.toString();ings>0;ings--){
@@ -250,6 +231,8 @@ function rowb2(){
 	}
 	tbl2.appendChild(trb);
 }
+
+//this will make all theows in the system
 function rowb3(){
 	var anger=0;
 	var extra=0;
@@ -361,7 +344,7 @@ function rowb4(){
 	tbl2.appendChild(trd);
 }
 */
-function answer2(ans3,finish3){
+function longanswer(ans3,finish3){
 	var answer6;
 	//var man;
 	var y6;
@@ -382,17 +365,21 @@ function answer2(ans3,finish3){
 		if(danga==dangb){
 			 spacea=1;
 			 spaceb=1;
+			 y7=parseInt(number6[(numberlength9-more)-spaceb]);
+		y6=parseInt(number5[ans3-spacea]);
 		}
-		if(dangb>danga){
+		if(danga>dangb){
 			spacea=1;
 			spaceb=cb+1;
+			y7=parseInt(number6[ans3-spacea]);
+		y6=parseInt(number5[(numberlength9-more)-spaceb]);
 		}
 		if(dangb>danga){
 			spaceb=ca+1;
-			spacea=1;	
-		}
-		y7=parseInt(number6[(numberlength9-more)-spaceb]);
+			spacea=1;
+			y7=parseInt(number6[(numberlength9-more)-spaceb]);
 		y6=parseInt(number5[ans3-spacea]);
+		}
 		console.log(y7);
 	    console.log(y6);
 		
@@ -412,7 +399,10 @@ function answer2(ans3,finish3){
 			answer6=y6*y7;
 			console.log(answer6);
 		}
-		//if(finish3%(numberlength9)==1){
+		if(isNaN(answer6)){
+			answer6=0;
+		}
+		if(finish3%(numberlength9)!=0){
 		if(answer6<10&&carry1==true){
 			answer6=answer6+a2;
 			console.log(answer6);
@@ -581,7 +571,7 @@ function answer2(ans3,finish3){
 			document.getElementById("answerz"+(finish3)).innerHTML+=answer6;
 			info2.unshift(answer6);
 		}
-		//}
+		}
 		
 		else if(finish3%(numberlength9)==0){
 			if(carry1==true){
@@ -591,8 +581,10 @@ function answer2(ans3,finish3){
 			document.getElementById("answerz"+(finish3)).innerHTML+=answer6;
             carry1=false;
 			info2.unshift(answer6);
+			a2=0;
 			}
 			else if(carry1==false){
+				a2=0;
 			document.getElementById("answerz"+(finish3)).innerHTML+=answer6;
 			info2.unshift(answer6);
 			}

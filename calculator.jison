@@ -46,11 +46,11 @@ e
     : e '+' e
         {$$ = $1+$3; additionFunction($1.toString(),$3.toString());}
     | e '-' e
-        {$$ = $1-$3;}
+        {$$ = $1-$3; subtractionFunction($1.toString(),$3.toString());}
     | e '*' e
-        {$$ = $1*$3;}
+        {$$ = $1*$3; gridmultiplicationFunction($1.toString(),$3.toString());}
     | e '/' e
-        {$$ = $1/$3;}
+        {$$ = $1/$3;devisionFunction($1.toString(),$3.toString());}
     | e '^' e
         {$$ = Math.pow($1, $3);}
     | e '!'
